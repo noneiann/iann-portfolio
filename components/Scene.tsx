@@ -32,13 +32,6 @@ export default function Scene({ className }: { className?: string }) {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
     container.appendChild(renderer.domElement);
-    // --- Helpers --------------------------------------------------------
-    const axesHelper = new THREE.AxesHelper(5);
-    scene.add(axesHelper);
-
-    const gridHelper = new THREE.GridHelper(10, 10);
-    scene.add(gridHelper);
-
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(5, 5, 5);
     scene.add(light);
@@ -205,7 +198,6 @@ export default function Scene({ className }: { className?: string }) {
         -(((event.clientY - rect.top) / rect.height) * 2 - 1)
       );
     };
-    window.addEventListener("pointermove", onPointerMove);
 
     const resizeObserver = new ResizeObserver(() => {
       const { clientWidth: width, clientHeight: height } = container;
@@ -252,17 +244,15 @@ export default function Scene({ className }: { className?: string }) {
 
     // --- Loop --------------------------------------------------------------
     const timer = new THREE.Timer();
-    const cameraBase = new THREE.Vector3(shell.position.x, shell.position.y, shell.position.z + 3);
-    const AMOUNT_X = 0.5, AMOUNT_Y = 0.3;
+    const spherical = new THREE.Spherical();
+    const RADIUS = 3;
 
-    renderer.setAnimationLoop((timestamp) => {
+    const tick = (timestamp: number) => {
       timer.update(timestamp);
       const elapsed = timer.getElapsed();
       const delta = timer.getDelta();
       const damping = 1 - Math.exp(-4 * delta);
       pointer.lerp(target, damping);
-      const spherical = new THREE.Spherical();
-      const RADIUS = 3;
       if (!reducedMotion) {
         spherical.set(
           RADIUS,
@@ -295,11 +285,30 @@ export default function Scene({ className }: { className?: string }) {
             `fps      ${fps.toFixed(0)}`;
         }
       }
-    });
+    };
+
+    // Only render — and only track the pointer — while the canvas is
+    // actually on screen. Scrolled past the hero, this would otherwise keep
+    // painting a full-screen antialiased scene at the display's refresh rate,
+    // and listening on `window` for movement no one can see, for the rest of
+    // the page.
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        renderer.setAnimationLoop(entry.isIntersecting ? tick : null);
+        if (entry.isIntersecting) {
+          window.addEventListener("pointermove", onPointerMove);
+        } else {
+          window.removeEventListener("pointermove", onPointerMove);
+        }
+      },
+      { threshold: 0 }
+    );
+    visibilityObserver.observe(container);
 
     // --- Cleanup -----------------------------------------------------------
     return () => {
       renderer.setAnimationLoop(null);
+      visibilityObserver.disconnect();
       window.removeEventListener("pointermove", onPointerMove);
       resizeObserver.disconnect();
 
