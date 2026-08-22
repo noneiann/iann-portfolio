@@ -1,11 +1,8 @@
 export default function Projects() {
     return (
-        // Two viewports, two camera beats: the "PROJECTS" title card, then the
-        // pulled-back view this copy reads over.
-        <div
-            data-scene-stop="2"
-            className="relative min-h-[200vh] w-screen overflow-x-hidden"
-        >
+        // Taller than a viewport, with the content pinned by `sticky` so it
+        // holds while the section scrolls past.
+        <div className="relative min-h-[200vh] w-screen overflow-x-hidden">
             <div className="sticky top-0 flex h-dvh items-center">
                 <div className="grid w-full grid-cols-12 gap-x-12 gap-y-4 p-8 font-archivo sm:p-14">
                     <div className="sm:col-span-6 sm:col-start-3">
