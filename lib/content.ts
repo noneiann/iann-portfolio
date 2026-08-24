@@ -20,130 +20,139 @@ export const NAV_ITEMS = [
 
 export const ABOUT = {
   paragraphs: [
-    "I'm a software engineer who likes working across the whole stack — from interface details down to the infrastructure that keeps them running. I care most about the seams: the API contract, the build pipeline, the handoff between design and code.",
-    "Most recently I've been building with TypeScript, React, and Next.js on the front end, and Node with Postgres on the back — with a growing interest in real-time, WebGL-driven interfaces like the one this site is built on.",
+    "I'm a Software Developer working across full-stack product engineering, machine learning, and systems development.",
+    "I focus on building robust, scalable software tailored for real-world operations. My adaptability towards different stacks and my curiousity empowers me to strive for innovation and quality. I am passionate about leveraging my expertise to solve problems and deliver solutions.",
   ],
   focus: [
     {
-      title: "Product engineering",
-      description: "Shipping interfaces that hold up under real usage, not just demo conditions.",
+      title: "Full-Stack & Mobile",
+      description: "Building production web apps and mobile solutions with Next.js, React Native, and Supabase.",
     },
     {
-      title: "Systems & infra",
-      description: "APIs, data pipelines, and the deploy tooling that makes shipping boring.",
+      title: "Computer Vision, Machine Learning, & AI",
+      description: "Implementing geometric camera localization, behavioral cloning CNNs, and real-time video analytics pipelines.",
     },
     {
-      title: "Interactive graphics",
-      description: "WebGL and shader work — this hero scene included — for interfaces that feel alive.",
+      title: "Systems & Simulation",
+      description: "Developing high-performance, multithreaded simulations and graphics applications using C++, SDL3, and OpenGL.",
     },
   ],
   stats: [
-    { value: "5+", label: "Years building software" },
-    { value: "20+", label: "Shipped projects" },
-    { value: "3", label: "Core stacks" },
+    { value: "8+", label: "Shipped Projects" },
+    { value: "10+", label: "Languages & Tools" },
+    { value: "BSCS", label: "MSU-IIT Graduate 2026" },
   ],
 };
 
 export const SKILL_GROUPS = [
   {
     title: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "SQL", "GLSL"],
+    items: ["Python", "TypeScript", "JavaScript", "C++", "SQL", "Dart", "PHP", "Java", "C#"],
   },
   {
-    title: "Frontend",
-    items: ["React", "Next.js", "Three.js", "Tailwind CSS", "Framer Motion"],
+    title: "Frontend & Mobile",
+    items: ["Next.js", "React", "React Native", "Expo", "Flutter", "Tailwind CSS"],
   },
   {
-    title: "Backend & data",
-    items: ["Node.js", "PostgreSQL", "REST / GraphQL", "Redis"],
+    title: "Backend & Cloud",
+    items: ["Node.js", "PostgreSQL", "Supabase", "Firebase", "Docker", "Flask"],
   },
   {
-    title: "Tools & infra",
-    items: ["Docker", "AWS", "GitHub Actions", "Vercel", "Git"],
+    title: "AI, Vision & Systems",
+    items: ["PyTorch", "OpenCV", "OpenGL", "SDL3", "Git", "WordPress"],
   },
 ];
 
 export const EXPERIENCE = [
   {
-    id: "acme",
+    id: "anura-junior",
     index: "01",
-    role: "Senior Software Engineer",
-    company: "Acme Corp",
-    period: "2023 — Present",
-    location: "Remote",
-    description:
-      "Leading front-end architecture for a real-time analytics product used by teams monitoring distributed systems.",
-    highlights: [
-      "Rebuilt the dashboard rendering pipeline, cutting median load time by 40%.",
-      "Introduced a shared component library adopted across 4 product teams.",
-    ],
-  },
-  {
-    id: "northwind",
-    index: "02",
-    role: "Software Engineer",
-    company: "Northwind Labs",
-    period: "2021 — 2023",
-    location: "Remote",
-    description:
-      "Built and maintained developer-facing tooling, from CI dashboards to deploy automation.",
-    highlights: [
-      "Shipped a CI/CD observability tool now used by every engineering team.",
-      "Migrated the core API from REST to GraphQL with zero downtime.",
-    ],
-  },
-  {
-    id: "fieldstone",
-    index: "03",
     role: "Junior Developer",
-    company: "Fieldstone Studio",
-    period: "2019 — 2021",
-    location: "Hybrid",
+    company: "Anura Innovations",
+    period: "Aug 2025 — Jun 2026",
+    location: "Iligan City / Hybrid",
     description:
-      "Worked across small client projects, from marketing sites to internal admin tools.",
+      "Shipped production web and mobile features across client platforms using Next.js, React Native, Node.js, and Supabase.",
     highlights: [
-      "Delivered 10+ client sites end-to-end, from design handoff to launch.",
-      "Built an internal CMS that replaced a spreadsheet-based workflow.",
+      "Owned features end-to-end from database schema and backend APIs to responsive front-end UI.",
+      "Collaborated in an agile team handling code reviews, QA tracking, and Docker-based deployments.",
+    ],
+  },
+  {
+    id: "anura-intern",
+    index: "02",
+    role: "Software Developer Intern",
+    company: "Anura Innovations",
+    period: "Jun 2025 — Jul 2025",
+    location: "Iligan City / Hybrid",
+    description:
+      "Built and maintained features for internal and client projects using Next.js, Supabase, and PostgreSQL.",
+    highlights: [
+      "Contributed core feature work and integrations to the eReferral and Digital MIAM platforms.",
+      "Assisted in database query optimization and API layer standardizations.",
+    ],
+  },
+  {
+    id: "dreamteam",
+    index: "03",
+    role: "WordPress Developer",
+    company: "DreamTeam PH",
+    period: "Sep 2024 — Dec 2024",
+    location: "Remote",
+    description:
+      "Developed and customized WordPress sites, themes, and plugins to client specifications.",
+    highlights: [
+      "Built responsive, high-performance page layouts and tailored custom CMS workflows.",
+      "Handled production site maintenance, updates, and cross-browser troubleshooting.",
     ],
   },
 ];
 
 export const PROJECTS = [
   {
-    id: "orbital",
+    id: "thesis-nav",
     index: "01",
-    title: "Orbital",
-    blurb: "Real-time data visualization platform for monitoring distributed systems at a glance.",
-    tags: ["React", "WebSockets", "D3"],
-    year: "2025",
-    href: "#",
+    title: "End-to-End Autonomous Navigation",
+    blurb: "Lightweight navigation framework using homography-based Bird's-Eye-View rectification and DAVE2-style CNN steering prediction.",
+    tags: ["Python", "PyTorch", "OpenCV", "Computer Vision"],
+    year: "2026",
+    href: "https://github.com/noneiann",
   },
   {
-    id: "signal",
+    id: "riceblast-abm",
     index: "02",
-    title: "Signal",
-    blurb: "Developer analytics dashboard that turns CI and deploy events into a single timeline.",
-    tags: ["Next.js", "Postgres", "Node"],
-    year: "2024",
-    href: "#",
+    title: "Agent-Based RiceBlast Model",
+    blurb: "Multithreaded SLIR simulation with an advection-diffusion dispersal kernel and stochastic wind vector modeling.",
+    tags: ["C++", "SDL3", "OpenGL", "Multithreading"],
+    year: "2025",
+    href: "https://github.com/noneiann/RICEBLAST_ABM",
   },
   {
-    id: "lumen",
+    id: "blueracket",
     index: "03",
-    title: "Lumen",
-    blurb: "Generative design tool for exploring layout variations with a parametric grid engine.",
-    tags: ["TypeScript", "Canvas", "WebGL"],
-    year: "2024",
-    href: "#",
+    title: "BlueRacket",
+    blurb: "Two-sided mobile marketplace connecting customers with blue-collar workers with real-time updates.",
+    tags: ["Expo", "React Native", "Supabase", "Zustand"],
+    year: "2025",
+    href: "https://github.com/noneiann",
   },
   {
-    id: "nova",
+    id: "digital-miam",
     index: "04",
-    title: "Nova",
-    blurb: "Headless storefront with sub-second navigation and an inventory sync worker underneath.",
-    tags: ["Next.js", "GraphQL", "Redis"],
-    year: "2023",
-    href: "#",
+    title: "Digital MIAM",
+    blurb: "Professional mediation services platform featuring isolated client and admin portals.",
+    tags: ["Next.js 14", "Supabase", "Tailwind CSS", "shadcn/ui"],
+    year: "2025",
+    href: "https://github.com/noneiann",
+  },
+  {
+    id: "iligan-commuter",
+    index: "05",
+    title: "IliganonGO",
+    blurb: "Transit mapping platform for local jeepney routes featuring an integrated fare calculation system.",
+    tags: ["Flutter", "Google Maps API", "Firebase"],
+    year: "2024",
+    href: "https://github.com/noneiann/Iligan_Commuter",
   },
 ];
 
