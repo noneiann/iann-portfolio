@@ -1,51 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useLenis } from "lenis/react";
 import { NAV_ITEMS, SITE } from "@/lib/content";
+import { useActiveSection, useScrollToSection } from "@/lib/useActiveSection";
 
 export default function Nav() {
-  const lenis = useLenis();
-  const [activeId, setActiveId] = useState(NAV_ITEMS[0].id);
-  const [visible, setVisible] = useState(false);
-  const boundsRef = useRef<{ id: string; top: number }[]>([]);
+  const { activeId, scroll } = useActiveSection();
+  const scrollToSection = useScrollToSection();
 
-  useEffect(() => {
-    const measure = () => {
-      boundsRef.current = NAV_ITEMS.map(({ id }) => {
-        const el = document.getElementById(id);
-        return { id, top: el ? el.offsetTop : 0 };
-      });
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
+  const visible = scroll > (typeof window === "undefined" ? Infinity : window.innerHeight * 0.6);
 
-  const onScroll = useCallback((instance: { scroll: number }) => {
-    const scroll = instance.scroll;
-    setVisible(scroll > window.innerHeight * 0.6);
-
-    const bounds = boundsRef.current;
-    if (!bounds.length) return;
-    let current = bounds[0].id;
-    for (const entry of bounds) {
-      if (scroll + window.innerHeight * 0.4 >= entry.top) current = entry.id;
-    }
-    setActiveId((prev) => (prev === current ? prev : current));
-  }, []);
-
-  useLenis(onScroll);
-
-  const scrollToSection = (id: string) => (event: React.MouseEvent) => {
+  const onNavClick = (id: string) => (event: React.MouseEvent) => {
     event.preventDefault();
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (lenis) {
-      lenis.scrollTo(el, { offset: -16 });
-    } else {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollToSection(id);
   };
 
   return (
@@ -60,7 +26,7 @@ export default function Nav() {
     >
       <a
         href="#hero"
-        onClick={scrollToSection("hero")}
+        onClick={onNavClick("hero")}
         className="text-white/70 transition-colors hover:text-white"
       >
         {SITE.initials}
@@ -71,7 +37,7 @@ export default function Nav() {
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              onClick={scrollToSection(item.id)}
+              onClick={onNavClick(item.id)}
               className={`transition-colors ${
                 activeId === item.id
                   ? "text-[#8ea2ff]"
