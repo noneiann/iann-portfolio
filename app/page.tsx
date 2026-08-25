@@ -9,7 +9,7 @@ import SectionIndicator from "@/components/SectionIndicator";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-screen bg-[#05060a]">
+    <main className="relative min-h-screen w-full bg-[#05060a]">
       <Nav />
       <SectionIndicator />
       <div className="relative z-10">

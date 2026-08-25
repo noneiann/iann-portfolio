@@ -11,12 +11,12 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="relative flex min-h-dvh w-screen flex-col justify-between overflow-x-hidden p-16 font-archivo sm:p-32"
+      className="relative flex min-h-dvh w-full flex-col justify-between overflow-x-hidden px-6 py-20 font-archivo sm:px-12 sm:py-24 lg:px-32 lg:py-32"
     >
       <motion.div
         {...revealOnScroll}
         variants={staggerContainer}
-        className="grid w-full grid-cols-12 gap-x-12 gap-y-10"
+        className="grid w-full grid-cols-12 gap-x-6 gap-y-10 sm:gap-x-12"
       >
         <motion.div
           variants={fadeUp}
@@ -27,8 +27,8 @@ export default function Contact() {
 
         {/* Left: the closing statement. The address itself lives in the
             channel list on the right, so it isn't said twice. */}
-        <motion.div variants={fadeUp} className="col-span-12 sm:col-span-6">
-          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+        <motion.div variants={fadeUp} className="col-span-12 lg:col-span-6">
+          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             {CONTACT.heading}
           </h2>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-white/50 sm:text-base">
@@ -49,7 +49,7 @@ export default function Contact() {
         {/* Right: every way to reach me, one row each, address first. */}
         <motion.div
           variants={staggerContainer}
-          className="col-span-12 sm:col-span-5 sm:col-start-8"
+          className="col-span-12 lg:col-span-5 lg:col-start-8"
         >
           <motion.a
             variants={fadeUp}
@@ -60,7 +60,7 @@ export default function Contact() {
               <span className="block font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
                 Email
               </span>
-              <span className="mt-2 block text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-[#8ea2ff] sm:text-2xl">
+              <span className="mt-2 block text-base font-semibold tracking-tight text-white transition-colors group-hover:text-[#8ea2ff] sm:text-xl lg:text-2xl">
                 {SITE.email}
               </span>
             </span>
@@ -79,7 +79,7 @@ export default function Contact() {
                   href={social.href}
                   target={social.href.startsWith("#") ? undefined : "_blank"}
                   rel={social.href.startsWith("#") ? undefined : "noreferrer"}
-                  className="group flex items-center justify-between gap-6 border-b border-white/10 py-4 transition-colors hover:border-white/30"
+                  className="group flex flex-col items-start gap-1 border-b border-white/10 py-4 transition-colors hover:border-white/30 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
                 >
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40 transition-colors group-hover:text-white/70">
                     {social.label}
@@ -100,7 +100,7 @@ export default function Contact() {
         </motion.div>
       </motion.div>
 
-      <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 sm:flex-row sm:items-center sm:justify-between sm:tracking-[0.3em]">
         <p>
           {SITE.location} &mdash; {SITE.timezone}
         </p>

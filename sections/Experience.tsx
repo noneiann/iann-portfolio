@@ -6,17 +6,17 @@ import { fadeUp, revealOnScroll, staggerContainer } from "@/lib/motion";
 
 export default function Experience() {
   return (
-    <div id="experience" className="relative w-screen overflow-x-hidden">
+    <div id="experience" className="relative w-full overflow-x-hidden">
       <motion.div
         {...revealOnScroll}
         variants={staggerContainer}
-        className="grid w-full grid-cols-12 gap-x-12 gap-y-10 p-16 font-archivo sm:gap-y-14 sm:p-32"
+        className="grid w-full grid-cols-12 gap-x-6 gap-y-10 px-6 py-20 font-archivo sm:gap-x-12 sm:gap-y-14 sm:px-12 sm:py-24 lg:px-32 lg:py-32"
       >
         <motion.div variants={fadeUp} className="col-span-12">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
             03 / Experience
           </div>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             WHERE I&apos;VE BEEN
           </h2>
         </motion.div>
@@ -30,7 +30,7 @@ export default function Experience() {
                 i === 0 ? "" : "border-t"
               }`}
             >
-              <div className="col-span-12 sm:col-span-3">
+              <div className="col-span-12 lg:col-span-3">
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
                   {job.period}
                 </span>
@@ -39,7 +39,7 @@ export default function Experience() {
                 </div>
               </div>
 
-              <div className="col-span-12 sm:col-span-9">
+              <div className="col-span-12 lg:col-span-9">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                     {job.role}

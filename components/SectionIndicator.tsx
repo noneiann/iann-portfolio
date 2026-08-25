@@ -13,7 +13,7 @@ export default function SectionIndicator() {
     <nav
       aria-label="Section navigation"
       aria-hidden={!pastHero}
-      className={`fixed right-8 top-1/2 z-50 hidden -translate-y-1/2 md:block ${
+      className={`fixed right-8 top-1/2 z-50 hidden -translate-y-1/2 lg:block ${
         pastHero ? "opacity-100" : "opacity-0"
       } transition-opacity duration-500`}
       style={{ pointerEvents: pastHero ? "auto" : "none" }}
