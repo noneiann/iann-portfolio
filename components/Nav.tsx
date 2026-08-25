@@ -1,32 +1,25 @@
 "use client";
 
 import { NAV_ITEMS, SITE } from "@/lib/content";
-import { useActiveSection, useScrollToSection } from "@/lib/useActiveSection";
+import { useScrollToSection, useSectionScroll } from "@/lib/use-section-scroll";
 
 export default function Nav() {
-  const { activeId, scroll } = useActiveSection();
+  const { activeId, pastHero } = useSectionScroll();
   const scrollToSection = useScrollToSection();
-
-  const visible = scroll > (typeof window === "undefined" ? Infinity : window.innerHeight * 0.6);
-
-  const onNavClick = (id: string) => (event: React.MouseEvent) => {
-    event.preventDefault();
-    scrollToSection(id);
-  };
 
   return (
     <nav
-      aria-hidden={!visible}
+      aria-hidden={!pastHero}
       className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b px-16 py-5 font-mono text-[10px] uppercase tracking-[0.3em] transition-all duration-500 sm:px-32 ${
-        visible
+        pastHero
           ? "border-white/10 bg-[#05060a]/90"
           : "border-transparent bg-transparent"
       }`}
-      style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}
+      style={{ opacity: pastHero ? 1 : 0, pointerEvents: pastHero ? "auto" : "none" }}
     >
       <a
         href="#hero"
-        onClick={onNavClick("hero")}
+        onClick={scrollToSection("hero")}
         className="text-white/70 transition-colors hover:text-white"
       >
         {SITE.initials}
@@ -37,7 +30,7 @@ export default function Nav() {
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              onClick={onNavClick(item.id)}
+              onClick={scrollToSection(item.id)}
               className={`transition-colors ${
                 activeId === item.id
                   ? "text-[#8ea2ff]"
