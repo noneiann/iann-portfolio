@@ -1,0 +1,14 @@
+<!-- The mark: an Archivo Black "R" on the site's near-black field, under the
+     accent rule the sections use as a divider. The glyph is outlined as a path
+     (traced from Archivo Black, the display family the hero sets its name in)
+     so it renders identically everywhere with no webfont to load.
+     favicon.ico and apple-icon.png are rasterised from this same outline. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="R">
+  <rect width="64" height="64" fill="#05060a"/>
+  <path
+    fill="#ededed"
+    fill-rule="evenodd"
+    d="M23.96 55L9.19 55L9.19 9L37.97 9Q43.12 9 46.58 11.07Q50 13.19 51.78 16.51Q53.51 19.83 53.51 23.72L53.51 23.72Q53.51 28.15 51.44 31.57Q49.37 35.03 45.81 37.1L45.81 37.1L54.81 55L38.26 55L31.23 39.55L23.96 39.55L23.96 55ZM23.96 19.49L23.96 29.35L34.31 29.35Q36.04 29.35 37.24 27.96Q38.45 26.61 38.45 24.3L38.45 24.3Q38.45 22.91 37.92 21.85Q37.39 20.79 36.43 20.16Q35.51 19.49 34.31 19.49L34.31 19.49L23.96 19.49Z"
+  />
+  <rect x="0" y="60.5" width="64" height="3.5" fill="#8ea2ff"/>
+</svg>
